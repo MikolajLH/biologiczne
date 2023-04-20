@@ -37,9 +37,9 @@ class DNA:
     OutputLayerSize = 4
     #Such is life without constuctor overloading...    
     def __init__(self,
-                 HL1 = [[random.random(-1.0,1.0) for __ in range(32)] for _ in range(20)], # Python doesnt like if i put the aliases there
-                 HL2 = [[random.random(-1.0,1.0) for __ in range(20)] for _ in range(12)], # So more crimes against Python is in order.
-                 OL = [[random.random(-1.0,1.0) for __ in range(12)] for _ in range(4)]):
+                 HL1 = [[random.random()*2.0-1.0 for __ in range(32)] for _ in range(20)], # Python doesnt like if i put the aliases there
+                 HL2 = [[random.random()*2.0-1.0 for __ in range(20)] for _ in range(12)], # So more crimes against Python is in order.
+                 OL = [[random.random()*2.0-1.0 for __ in range(12)] for _ in range(4)]):
         self.HiddenLayerOne = HL1
         self.HiddenLayerTwo = HL2
         self.OutputLayer = OL
@@ -92,4 +92,6 @@ class SnakeBrain:
         for i in self.HiddenLayerOne: i.CalcActivationValue()
         for i in self.HiddenLayerTwo: i.CalcActivationValue()
         for i in self.Output: i.CalcActivationValue()
+
+
 
