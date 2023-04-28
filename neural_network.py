@@ -1,5 +1,8 @@
 import random
 from numpy import tanh
+
+from snake.utils.direction import Direction
+
 #Snake neuron.
 #For input layer nodes, use the sensor field to plug data dorectly into the neuron.
 class Node:
@@ -78,13 +81,13 @@ class SnakeBrain:
     
     #Returns the index of the best activated output layer node. Do with that what you will. 
     # In the YT video, that would be 0 == U, 1 == D, 2 == L, 3 == R.
-    def GetOutput(self) -> int:
+    def GetOutput(self) -> Direction:
         self.calcOutput()
         maxi = 0
         for x in self.Output:
             if x.activationValue > self.Output[maxi].activationValue:
                 maxi = x
-        return maxi
+        return Direction(maxi)
     
     # In order to avoid duplicative calculation, we calcuate from bottom up. 
     # You will likely never need to use this function direclty, just use getOutput()
