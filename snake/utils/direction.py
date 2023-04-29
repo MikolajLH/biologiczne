@@ -21,3 +21,6 @@ class Direction(Enum):
 
     def __str__(self):
         return str(self.name)
+
+    def toBinaryList(self):
+        return [1 if i == self.value else 0 for i in range(len(Direction))]

@@ -8,8 +8,9 @@ from snake.utils.snake_config import *
 from snake.utils.vector2d import Vector2d
 from snake.utils.direction import Direction
 
+
 vision_lines_vectors = [Vector2d(0, -1), Vector2d(1, -1), Vector2d(1, 0), Vector2d(1, 1),
-                      Vector2d(0, 1), Vector2d(-1, 1), Vector2d(-1, 0), Vector2d(-1, -1)]
+                        Vector2d(0, 1), Vector2d(-1, 1), Vector2d(-1, 0), Vector2d(-1, -1)]
 
 
 class RawSnake:
