@@ -27,19 +27,18 @@ class Player:
             time.sleep(1)
 
         while self.__snake.getGameStatus() == GameStatus.GAME_ON:
+
             sensors = self.__snake.getSensors()
             inputValues = sensors.toNormalizedList()
 
-            # self.__brain.SetInputValues(inputValues)
-            # next_move: Direction = [d for d in Direction][self.__brain.GetOutput()]
-            next_move = get_random_move()  # temporary
+            self.__brain.SetInputValues(inputValues)
+            next_move = self.__brain.GetOutput()
+            # next_move = get_random_move()  # temporary
 
             self.__snake.make_move(next_move)
 
             print(inputValues)
             time.sleep(self.__move_time)
-
-        print(self.__snake.getSensors().toNormalizedList())
 
         if isinstance(self.__snake, SnakeHandler):
             self.__snake.quit()
