@@ -57,12 +57,11 @@ def merge(m : ParameterizedFunction,f : ParameterizedFunction):
 
 
 
-
 if __name__ == "__main__":
-    f, a, b, n = np.exp, 0, 2 *np.pi, 10
-    elite_percent = 0.1
-    mutation_chance = 0.2
-    pop_size = 100
+    f, a, b, n = np.cos, 0, 2 *np.pi, 10
+    elite_percent = 0.10
+    mutation_chance = 1.
+    pop_size = 1000
     number_of_generations = 100
 
     X = np.linspace(a,b,n)
@@ -76,10 +75,12 @@ if __name__ == "__main__":
         pf.add(np.vectorize(lambda x: x))
         pf.add(np.vectorize(lambda x: x*x))
         pf.add(np.vectorize(lambda x: x*x*x))
+        pf.add(np.vectorize(lambda x: x*x*x*x))
 
-        pf.randomize_u(-10, 10)
+        pf.randomize_u(-100, 100)
 
     for t in range(number_of_generations):
+        
         #calculating fitness
         for pf in population:
             nY = pf(X)
@@ -94,20 +95,15 @@ if __name__ == "__main__":
         elite_size = int(pop_size * elite_percent)
         population = population[:elite_size]
 
-        #crossover
+        #crossover and mutation
         children = []
         for _ in range(pop_size - elite_size):
             M, F = np.random.choice(population, 2, replace=False)
             children += [merge(M,F)]
-
-        population += children
-
-        #mutation
-        for pf in population:
-            pf.fitness = 0
             if np.random.binomial(1,mutation_chance):
                 pf.mutate_u(-10, 10)
 
+        population += children
     
     for pf in population:
             nY = pf(X)
@@ -127,6 +123,7 @@ if __name__ == "__main__":
         plt.scatter(X, Y, color='red')
         plt.title(f"Generation {t}, fitness: {pf.fitness}")
         plt.plot(W, pf(W), color='green')
+        #plt.scatter(X, pf(X))
 
     temp = list(enumerate(bests))
 
