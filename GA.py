@@ -1,6 +1,7 @@
 import numpy as np
 from copy import deepcopy
 from collections.abc import Callable
+import multiprocessing as mp
 
 #dummy classes for type hints
 class Entity: pass
@@ -26,16 +27,22 @@ class Args: pass
 # number_of_generations - self explanatory
 #
 
+#this wrapper is needed in order to enable paralelization
+def f_wrapper(i : int, ff, e, *args):
+    return i, ff(e,*args)
+
+
 def genetic_algorithm(
-        initial_population : list,
+        initial_population : list[Entity],
         fitness_function_info : tuple[Callable[[Entity, Args], float], Args],
         selection_function_info : tuple[ Callable[ [list[tuple[Entity, float], Args ] ], list[int] ], Args ],
         crossover_function_info : tuple[ Callable[[Entity, Entity, Args], Entity], Args ],
         mutation_functions_info : list[ tuple[Callable[ [Entity, Args], Entity], Args] ],
         elite_percent : float,
         number_of_generations : int,
-        fitness_translation_function = lambda x: x
-        ) -> tuple[list[tuple[Entity, float]], list]:
+        fitness_translation_function = lambda x: x,
+        extra_info_function = lambda *x: ''
+        ) -> tuple[list[tuple[Entity, float]], list[tuple[float,float,float,float,float]]]:
     
     elite_percent = max(0, min(1, elite_percent))
 
@@ -53,68 +60,104 @@ def genetic_algorithm(
     history = []
     history_statistics = []
 
-    for g in range(number_of_generations):
+    
+    '''
+    temp = []
+    def coll(res):
+        nonlocal temp
+        temp.append(res)
+    '''
 
-        #calculate fitness for each individual
-        for i, (e, f) in enumerate(population):
-            f = fitness_function(e, *fitness_function_args)
-            population[i] = (e,f)
+    try:
+        for g in range(number_of_generations):
 
-        #sort the population, with decreasing fitness
-        population.sort(key= lambda pair: pair[1], reverse= True)
+            pool = mp.Pool(mp.cpu_count())
+            temp = []
+            #calculate fitness for each individual
+            for i, (e, f) in enumerate(population):
+                #f = fitness_function(e, *fitness_function_args)
+                #population[i] = (e,f)
+                pool.apply_async(f_wrapper, args=(i, fitness_function, e, *fitness_function_args), callback= lambda res: temp.append(res))
 
-        best_e, best_f = population[0]
+            pool.close()
+            pool.join()
 
-        #statistical information about current generation
-        best_f = fitness_translation_function(best_f)
-        total_f = sum(fitness_translation_function(f) for _,f in population)
-        avg_f = total_f / N
-        median_f = fitness_translation_function(population[N//2][1])
-        worst_f = fitness_translation_function(population[-1][1])
-        f_std = np.std([fitness_translation_function(f)  for _,f in population])
+            for i, (f, *extra) in temp:
+                e, _ = population[i]
+                population[i] = (e, f, *extra)
+
+            
+
+            #sort the population, with decreasing fitness
+            population.sort(key= lambda pair: pair[1], reverse= True)
+
+            best_e, best_f, *extra_info = population[0]
+
+            for i, (e,f,*_) in enumerate(population):
+                population[i] = e,f
+
+
+            #statistical information about current generation
+
+            fs = [fitness_translation_function(f)  for _,f in population]
+
+            Q1_f = np.quantile(fs, 0.25)
+            Q3_f = np.quantile(fs, 0.75)
+            best_f = fitness_translation_function(best_f)
+            total_f = sum(fitness_translation_function(f) for _,f in population)
+            avg_f = total_f / N
+            median_f = fitness_translation_function(population[N//2][1])
+            worst_f = fitness_translation_function(population[-1][1])
+            f_std = np.std(fs)
+
+
+            #add best individual in this generation to the history list
+            history += [(best_e, best_f)]
+
+            #history_statistics += [SimpleNamespace(generation= g, best_fitness= best_f, worst_fitness= worst_f, avg_fitness= avg_f, median_fitness= median_f, fitness_std= f_std)]
+            history_statistics += [(g, best_f, worst_f, avg_f, Q1_f, median_f, Q3_f, f_std)]
+
+            sinfo = f'''
+            generation {g}:
+                extra info:     {extra_info_function(*extra_info)}
+                best fitness:   {best_f}
+                Q1:             {Q1_f}
+                median fitness: {median_f}
+                Q3:             {Q3_f}
+                worst fitness:  {worst_f}
+                avg fitness:    {avg_f}
+                fitness stddev: {f_std}
+            '''
+            print(sinfo)
+
+            #creating a mating pool
+            mating_pool_indices = selection_function(population, *selection_function_args)
         
 
-        #add best individual in this generation to the history list
-        history += [(best_e, best_f)]
+            #crossover operation
+            elite_number = max(1, int(elite_percent * N))
+            children_number = N - elite_number
 
-        #history_statistics += [SimpleNamespace(generation= g, best_fitness= best_f, worst_fitness= worst_f, avg_fitness= avg_f, median_fitness= median_f, fitness_std= f_std)]
+            children = []
 
-        sinfo = f'''
-        generation {g}:
-            best fitness:   {best_f}
-            avg fitness:    {avg_f}
-            median fitness: {median_f}
-            fitness std:    {f_std}
-            worst fitness:  {worst_f}
-        '''
-        print(sinfo)
+            for _ in range(children_number):
+                m_i, f_i = np.random.choice(mating_pool_indices, 2)
+                m, _ = population[m_i]
+                f, _ = population[f_i]
+                children += [(crossover_function(m, f, *crossover_function_args), 0)]
 
-        #creating a mating pool
-        mating_pool_indices = selection_function(population, *selection_function_args)
-        
+            #mutation operations
+            for i, _ in enumerate(children):
+                for op, *op_args in mutation_functions_info:
+                    e, _ = children[i]
+                    children[i] = op(e, *op_args), f
 
-        #crossover operation
-        elite_number = max(1, int(elite_percent * N))
-        children_number = N - elite_number
-        
-        children = []
-
-        for _ in range(children_number):
-            m_i, f_i = np.random.choice(mating_pool_indices, 2)
-            m, _ = population[m_i]
-            f, _ = population[f_i]
-            children += [(crossover_function(m, f, *crossover_function_args), 0)]
-
-        #mutation operations
-        for i, _ in enumerate(children):
-            for op, *op_args in mutation_functions_info:
-                e, _ = children[i]
-                children[i] = op(e, *op_args), f
-        
-        #creation of population for next generation
-        population = population[:elite_number] + children
-
-    return history
+            #creation of population for next generation
+            population = population[:elite_number] + children
+    except KeyboardInterrupt:
+        return history, history_statistics
+    
+    return history, history_statistics
 
 
 #types of selection briefly explained
@@ -126,6 +169,7 @@ def roulette_wheel_selection(population : list[tuple[Entity, float]], mating_poo
     total = sum(f for _,f in population)
     probabilities = [f / total for _, f in population]
     M = int(N * mating_pool_percent_size)
+    print(f"max P: {probabilities[0]}")
 
     return np.random.choice(N, M, p=probabilities)
 
