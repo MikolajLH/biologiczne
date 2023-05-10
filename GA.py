@@ -29,7 +29,7 @@ class Args: pass
 
 #this wrapper is needed in order to enable paralelization
 def f_wrapper(i : int, ff, e, *args):
-    return i, ff(e,*args)
+    return i, *(ff(e,*args))
 
 
 def genetic_algorithm(
@@ -41,9 +41,9 @@ def genetic_algorithm(
         elite_percent : float,
         number_of_generations : int,
         fitness_translation_function = lambda x: x,
-        extra_info_function = lambda *x: ''
+        extra_info_function = lambda *x: 'N/A'
         ) -> tuple[list[tuple[Entity, float]], list[tuple[float,float,float,float,float]]]:
-    
+
     elite_percent = max(0, min(1, elite_percent))
 
     population = [(deepcopy(e), 0) for e in initial_population]
@@ -60,51 +60,42 @@ def genetic_algorithm(
     history = []
     history_statistics = []
 
-    
-    '''
-    temp = []
-    def coll(res):
-        nonlocal temp
-        temp.append(res)
-    '''
-
     try:
         for g in range(number_of_generations):
 
             pool = mp.Pool(mp.cpu_count())
-            temp = []
+            tmp = []
             #calculate fitness for each individual
             for i, (e, f) in enumerate(population):
                 #f = fitness_function(e, *fitness_function_args)
                 #population[i] = (e,f)
-                pool.apply_async(f_wrapper, args=(i, fitness_function, e, *fitness_function_args), callback= lambda res: temp.append(res))
+                pool.apply_async(f_wrapper, args=(i, fitness_function, e, *fitness_function_args), callback= lambda res: tmp.append(res) )
 
             pool.close()
             pool.join()
 
-            for i, (f, *extra) in temp:
+            for i, f, *extra in tmp:
                 e, _ = population[i]
                 population[i] = (e, f, *extra)
 
-            
 
             #sort the population, with decreasing fitness
             population.sort(key= lambda pair: pair[1], reverse= True)
 
             best_e, best_f, *extra_info = population[0]
 
-            for i, (e,f,*_) in enumerate(population):
-                population[i] = e,f
+            # get rid of potential extra information returned by fitness function
+            for i, (e, f,*_) in enumerate(population):
+                population[i] = e, f
 
 
             #statistical information about current generation
-
             fs = [fitness_translation_function(f)  for _,f in population]
 
             Q1_f = np.quantile(fs, 0.25)
             Q3_f = np.quantile(fs, 0.75)
             best_f = fitness_translation_function(best_f)
-            total_f = sum(fitness_translation_function(f) for _,f in population)
+            total_f = sum(fitness_translation_function(f) for _, f in population)
             avg_f = total_f / N
             median_f = fitness_translation_function(population[N//2][1])
             worst_f = fitness_translation_function(population[-1][1])
@@ -119,7 +110,7 @@ def genetic_algorithm(
 
             sinfo = f'''
             generation {g}:
-                extra info:     {extra_info_function(*extra_info)}
+                the best info:  {extra_info_function(*extra_info)}
                 best fitness:   {best_f}
                 Q1:             {Q1_f}
                 median fitness: {median_f}
@@ -169,7 +160,7 @@ def roulette_wheel_selection(population : list[tuple[Entity, float]], mating_poo
     total = sum(f for _,f in population)
     probabilities = [f / total for _, f in population]
     M = int(N * mating_pool_percent_size)
-    print(f"max P: {probabilities[0]}")
+    print(f"max probability on roulette wheel: {probabilities[0]}")
 
     return np.random.choice(N, M, p=probabilities)
 
