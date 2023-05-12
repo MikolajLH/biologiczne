@@ -1,21 +1,22 @@
-import NN
 import numpy as np
 import pygame
 import time
 from snake.snake_handler import SnakeHandler
 from snake.utils.direction import Direction
 from snake.utils.game_status import GameStatus
+from NN.neural_network import NeuralNetwork
+from NN.activation_functions import *
 
 
 
 class Player:
-    def __init__(self, brain : NN.NeuralNetwork, move_time: float = 0.20) -> None:
+    def __init__(self, brain : NeuralNetwork, move_time: float = 0.20) -> None:
 
         self.__brain = brain
         self.__snake = SnakeHandler(True)
         self.__move_time = move_time
 
-    def set_brain(self, brain : NN.NeuralNetwork) -> None:
+    def set_brain(self, brain : NeuralNetwork) -> None:
         self.__brain = brain
 
     
@@ -41,13 +42,13 @@ class Player:
 if __name__ == "__main__":
     pygame.init()
 
-    model = NN.NeuralNetwork()
+    model = NeuralNetwork()
     model.add_input_layer(32)
-    model.add_hidden_layer(24, NN.relu)
-    model.add_hidden_layer(12, NN.relu)
-    model.add_output_layer(4, NN.softmax)
+    model.add_hidden_layer(24, relu)
+    model.add_hidden_layer(12, relu)
+    model.add_output_layer(4, softmax)
 
-    path = "snake_expfit_rw_500_gn5x3_g5_e1_750.npz"
+    path = "uniform_biases.npz"
     brain = model.copy()
     brain.load(path)
 

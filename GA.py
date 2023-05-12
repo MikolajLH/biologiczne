@@ -207,7 +207,7 @@ def single_point_crossover(m : np.array, f : np.array):
     return np.concatenate([m[:break_point], f[break_point:]])
 
 # [A, A, A, A, A] & [B, B, B, B, B] -> [A, B, B, A, A]
-def double_point_crossover(m, f):
+def double_point_crossover(m : np.array, f : np.array):
     assert len(m) == len(f)
     bp_1 = np.random.randint(len(m))
     bp_2 = np.random.randint(len(m))

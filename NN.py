@@ -109,7 +109,7 @@ class NeuralNetwork:
             self.W(i, npzfile[arr])
     
 
-def crossover(m : NeuralNetwork, f : NeuralNetwork) -> NeuralNetwork:
+def nodes_crossover(m : NeuralNetwork, f : NeuralNetwork) -> NeuralNetwork:
     assert len(m.weights) == len(f.weights)
 
     c = m.copy()
@@ -120,7 +120,27 @@ def crossover(m : NeuralNetwork, f : NeuralNetwork) -> NeuralNetwork:
                 c.weights[i][k] = f.weights[i][k]
     return c
 
+def weights_crossover(m : NeuralNetwork, f : NeuralNetwork) -> NeuralNetwork:
+    assert len(m.weights) == len(f.weights)
 
+    c = m.copy()
+    for i in range(len(c.weights)):
+
+        pass
+    
+def merge(a : np.ndarray, b : np.ndarray) -> np.ndarray:
+
+    assert np.shape(a) == np.shape(b)
+
+    a_f = a.flatten()
+    b_f = b.flatten()
+
+    assert len(a_f) == len(b_f)
+
+    for i in range(len(a_f)):
+        if np.random.rand() < 0.5:
+            pass
+        
 
 def g_mutate(nn : NeuralNetwork, rate : float, mean = 0., stddev = 1.) -> NeuralNetwork:
     cnn = nn.copy()
