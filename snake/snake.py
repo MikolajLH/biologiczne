@@ -148,16 +148,13 @@ class Snake:
             v = self.__snake_head.position
             self.__sensors.visions[i].is_apple = False
             self.__sensors.visions[i].is_snake_body = False
-            while True:
+            while v.x > 0 and v.x < GRID_WIDTH and v.y > 0 and v.y < GRID_HEIGHT:
                 v += unit_vector
-                if v.x < 0 or v.x >= GRID_WIDTH or v.y < 0 or v.y > GRID_HEIGHT:
-                    break
-                elif v == self.__food_position:
+                if v == self.__food_position:
                     self.__sensors.visions[i].is_apple = True
-                    break
                 elif v in body_positions:
                     self.__sensors.visions[i].is_snake_body = True
-                    break
+
             dx, dy = (v - self.__snake_head.position).toList()
             self.__sensors.visions[i].distance = max(abs(dx), abs(dy))
 
