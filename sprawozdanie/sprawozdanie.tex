@@ -19,23 +19,66 @@
 \maketitle
 \newpage
 \section{Internal Notes - remove when done}
-Jak odpalać żeby działał itp itd.
+evolution.py -> do uczenia wunsza. Zapisuje to best\_snake.save()
+Parametry algorytmu genetycznego są evolution history,statistics (linia 79).
+Zapisuje na konsole, zapisuje i Wypluwa wykresy na ekran.
+
+snake/utils/snake_config.py -> do zmiany ustawień mapy. Asercja że jak pozmieniam to przeżyje.
 \section{Abstrakt}
-Teoria "co robimy"
+%Teoria "co robimy"
+W tym raporcie rozważamy zastosowania algorytmów genetycznych do szkolenia sztucznej inteligencji realizującej klasyczną grę "Snake".
+\paragraph{Struktura gry "Snake"}
+Rzecz dzieje się na kwadratowej planszy 2D o stałej, danej parametrem wielkości. Na tej planszy zawsze znajdują się: \textbf{wąż} i \textbf{jabłko}. Wąż początkowo zajmuje 3 komórki owej planszy, jabłko - jedną. Wąż będzie przesuwał się po planszy, unikając ścian planszy oraz swojego ogona, próbując zaś zjeść jak najwięcej jabłek. Przy czym, za każdym razem gdy wąż zje jabłko (przesuwając swoją głowę na pole jabłka), wydłuża się o jedną kratkę.
+Gdy głowa węża trafi w ścianę bądź w  inną część węża, gra się kończy.
+\paragraph{Struktura sztucznej inteligencji}
+Celem naszej sztucznej inteligencji będzie wybranie optymalnego kierunku ruchu dla głowy węża, z czterech dostępnych opcji - do góry, w dół, w lewo i w prawo. Wybór podejmie na podstawie \textbf{sensorów} - tego "co wąż widzi" - oraz jego \textbf{DNA}, które będzie ustalone na początku gry.
+\paragraph{Struktura algorytmu genetycznego}
+Żeby wyszkolić naszą inteligencję, korzystamy z algorytmu genetycznego. Rzecz będzie się działa następująco.
+Rozpoczniemy od stworzenia pewnej \textbf{populacji} węży o losowo utworzonym DNA. Następnie każemy im grać, i zapiszemy ich rezultaty. Będzie to \textbf{generacja} 1. Zapewne skuteczność SI będzie dość mizerna, ale nie to nas interesuje. Po zapisaniu rezultatów, dokonamy pewnych modyfikacji do naszej populacji, i spróbujemy ponownie. W ten sposób utworzymy \textbf{generację} 2. Taką pętlę tworzenia nowych generacji będziemy wykonywać "do skutku" - efektywnie jedynym ograniczeniem jest moc obliczeniowa. 
 \section{Implementacja}
-Jak zaimplementowaliśmy tego sneka.
+Implemetujemy kompleksową symulację, zarówno z samym algorytmem genetycznym, jak i środowiskiem szkoleniowym generującym informacje o jakości danej sztucznej inteligencji.
+\paragraph{Struktura DNA}
+Nasza SI węża jest de facto siecią neuronową o stałej ilości neuronów i stałymi połączeniami między nimi. 
+Jedyne co się zmienia to wagi jakie każdy neuron przyjmuje na wejściu, co daje DNA jako ciąg liczb rzeczywistych.
+Przy czym należy zauważyć, że z perspektywy algorytmu genetycznego nie ma znaczenia, jak DNA jest interpretowane.
+W naszym przypadku mamy do czynienia z $24\cdot32+12\cdot24+4\cdot12$ liczbami składającymi się na DNA.
+\paragraph{Struktura sensorów}
+SI ma 32 różne sensory, odpowiedzialne za odczytywanie informacji z planszy.
+24 z nich są odpowiedzialne za "wzrok" węża, 4 - za informowanie o obecnym kierunku głowy, 4 zaś - informowanie o obecnym kierunku ogona węża.
+\subparagraph{Wzrok}
+Wąż "widzi" w 8 kierunkach - w osiach kardynalnych oraz po przekątnych. \\
+W każdym kierunku wąż otrzymuje następujące informacje: \\
+1. Odległość od ściany.
+2. Odległość od jabłka, jeśli jest w tym kierunku. 
+3. Odległość od części ciała węża, jeśli jest w tym kierunku.
+\subparagraph{Kierunkek głowy/ogona}
+Sensory kierunku głowy/ogona są implementowane binarnie - odpowiadają na pytanie "Czy (głowa/ogon) jest zwrócona w kierunku tym a tym", gdzie dostępne kierunki to osie kardynalne.
+\subsection{Charakterystyka algorytmu genetycznego}
+Podczas przygotowywania każdej generacji algorytm genetyczny dzieli się na trzy fazy: selekcji, krzyżowania i mutacji.
+TODO: Opisać precyzyjnie
+\paragraph{Selekcja}
+\paragraph{Krzyżowanie}
+\paragraph{Mutacja}
 \section{Rezultaty nauki}
 Czego się nauczył?
 \paragraph{Parametry konfiguracyjne}
-Co możemy zmieniać (np. wielkość mapy, długość nauki, itp itd.)
+%Co możemy zmieniać (np. wielkość mapy, długość nauki, itp itd.)
+W ramach konfiguracji możemy zmieniać: \\
+Wielkość mapy, \\
+Wielkość populacji w każdej generacji, \\
+Ilość generacji (długość treningu), \\
+funkcję opisującą skuteczność SI, \\
+parametry selekcji/krzyżowania/mutacji.
 \subsection{Rezutaty z zestawu parametrów 1}
 \paragraph{Zestaw parametrów 1}
 \paragraph{Rezutaty nauki}
 Ładne grafy i komentarze tutaj.
-\subsection{Rezutaty z zestawu parametrów 1}
-\paragraph{Zestaw parametrów 1}
+\subsection{Rezutaty z zestawu parametrów 2}
+\paragraph{Zestaw parametrów 2}
 \paragraph{Rezutaty nauki}
 Ładne grafy i komentarze tutaj.
 \section{Wnioski} 
 Jeżeli na jakieś wpadniemy.
+Może popatrzeć jak wunsz wyćwiczony na małej mapie radzi sobie na dużej?
+\section{Bibliografia}
 \end{document}
