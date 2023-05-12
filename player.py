@@ -23,25 +23,28 @@ class Player:
             self.__snake: RawSnake = RawSnake(False)
 
     def start(self):
-        if self.__show_display:
-            time.sleep(1)
+        while True:
+            if self.__show_display:
+                time.sleep(1)
 
-        while self.__snake.getGameStatus() == GameStatus.GAME_ON:
+            while self.__snake.getGameStatus() == GameStatus.GAME_ON:
 
-            sensors = self.__snake.getSensors()
-            inputValues = sensors.toNormalizedList()
+                sensors = self.__snake.getSensors()
+                inputValues = sensors.toNormalizedList()
 
-            self.__brain.SetInputValues(inputValues)
-            next_move = self.__brain.GetOutput()
-            # next_move = get_random_move()  # temporary
+                self.__brain.SetInputValues(inputValues)
+                # next_move = self.__brain.GetOutput()
+                next_move = get_random_move()  # temporary
 
-            self.__snake.make_move(next_move)
+                self.__snake.make_move(next_move)
 
-            print(inputValues)
-            time.sleep(self.__move_time)
+                print(inputValues)
+                time.sleep(self.__move_time)
 
-        if isinstance(self.__snake, SnakeHandler):
-            self.__snake.quit()
+            self.__snake.new_game()
+
+        # if isinstance(self.__snake, SnakeHandler):
+        #     self.__snake.quit()
 
 
 def get_random_move() -> Direction:

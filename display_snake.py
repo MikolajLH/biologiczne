@@ -22,21 +22,19 @@ class Player:
     
     def play(self):
         time.sleep(1)
+        while True:
+            while gs := self.__snake.getGameStatus() == GameStatus.GAME_ON:
+                sensors = self.__snake.getSensors()
 
-        self.__snake.new_game()
-        while gs := self.__snake.getGameStatus() == GameStatus.GAME_ON:
-            sensors = self.__snake.getSensors()
+                inputVector = np.array(sensors.toNormalizedList())
 
-            inputVector = np.array(sensors.toNormalizedList())
+                outputVector = self.__brain(inputVector)
 
-            outputVector = self.__brain(inputVector)
-        
-            next_move = Direction(np.argmax(outputVector))
-            self.__snake.make_move(next_move)
+                next_move = Direction(np.argmax(outputVector))
+                self.__snake.make_move(next_move)
 
-            time.sleep(self.__move_time)
-        
-        self.__snake.quit()
+                time.sleep(self.__move_time)
+            self.__snake.new_game()
 
 
 if __name__ == "__main__":
@@ -48,7 +46,7 @@ if __name__ == "__main__":
     model.add_hidden_layer(12, relu)
     model.add_output_layer(4, softmax)
 
-    path = "uniform_biases.npz"
+    path = "sensor_test.npz"
     brain = model.copy()
     brain.load(path)
 
