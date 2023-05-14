@@ -34,6 +34,7 @@ class Player:
                 self.__snake.make_move(next_move)
 
                 time.sleep(self.__move_time)
+            time.sleep(1)
             self.__snake.new_game()
 
 
@@ -46,10 +47,10 @@ if __name__ == "__main__":
     model.add_hidden_layer(12, relu)
     model.add_output_layer(4, softmax)
 
-    path = "sensor_test.npz"
+    path = "uniform_biases.npz"
     brain = model.copy()
     brain.load(path)
 
-    player = Player(brain)
+    player = Player(brain, move_time=0.05)
 
     player.play()

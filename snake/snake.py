@@ -64,21 +64,6 @@ class Snake:
     def __run(self):
         clock = pygame.time.Clock()
 
-        while self.__game_status == GameStatus.GAME_ON:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.__game_status = GameStatus.GAME_OVER_QUIT
-                    self.__game_status_wrapper = self.__game_status
-                    pygame.quit()
-                    quit()
-                elif event.type == pygame.SYSWMEVENT:
-                    if event.msg == "new_game":
-                        self.new_game()
-                elif event.type == pygame.USEREVENT:
-                    self.make_move(event.move)
-
-            clock.tick(60)
-
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -89,7 +74,10 @@ class Snake:
                 elif event.type == pygame.SYSWMEVENT:
                     if event.msg == "new_game":
                         self.new_game()
-            clock.tick(10)
+                elif self.__game_status == GameStatus.GAME_ON and event.type == pygame.USEREVENT:
+                    self.make_move(event.move)
+
+            clock.tick(60)
 
     def __reset(self):
         self.__snake_head = self.SnakeCell(Vector2d(GRID_WIDTH // 2, GRID_HEIGHT // 2), Direction.RIGHT)

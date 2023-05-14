@@ -31,6 +31,7 @@ class Player:
 
                 sensors = self.__snake.getSensors()
                 inputValues = sensors.toNormalizedList()
+                # inputValues = sensors.toBinaryList()
 
                 self.__brain.SetInputValues(inputValues)
                 # next_move = self.__brain.GetOutput()

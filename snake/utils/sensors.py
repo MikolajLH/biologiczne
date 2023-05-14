@@ -19,6 +19,9 @@ class Sensors:
         def toNormalizedList(self):
             return [self.distance / MAX_DISTANCE, int(self.is_apple), int(self.is_snake_body)]
 
+        def toBinaryList(self):
+            return [0 if self.is_apple or self.is_snake_body else 1, int(self.is_apple), int(self.is_snake_body)]
+
     def __init__(self):
         self.head_direction: Direction = Direction.RIGHT
         self.tail_direction: Direction = Direction.RIGHT
@@ -32,4 +35,8 @@ class Sensors:
 
     def toNormalizedList(self):
         return [value for vision in self.visions for value in vision.toNormalizedList()] + \
+               self.head_direction.toBinaryList() + self.tail_direction.toBinaryList()
+
+    def toBinaryList(self):
+        return [value for vision in self.visions for value in vision.toBinaryList()] + \
                self.head_direction.toBinaryList() + self.tail_direction.toBinaryList()
