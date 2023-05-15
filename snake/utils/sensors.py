@@ -19,8 +19,8 @@ class Sensors:
         def toNormalizedList(self):
             return [self.distance / MAX_DISTANCE, int(self.is_apple), int(self.is_snake_body)]
 
-        def toBinaryList(self):
-            return [0 if self.is_apple or self.is_snake_body else 1, int(self.is_apple), int(self.is_snake_body)]
+        def toNormalizedList2(self):
+            return [1.0 / max(self.distance, 1), int(self.is_apple), int(self.is_snake_body)]
 
     def __init__(self):
         self.head_direction: Direction = Direction.RIGHT
@@ -33,10 +33,12 @@ class Sensors:
             s += "\n" + str(vl)
         return s
 
+    # binary apple and body sensors, distance to walls normalized in our way (min:0.0, max:1.0)
     def toNormalizedList(self):
         return [value for vision in self.visions for value in vision.toNormalizedList()] + \
                self.head_direction.toBinaryList() + self.tail_direction.toBinaryList()
 
-    def toBinaryList(self):
-        return [value for vision in self.visions for value in vision.toBinaryList()] + \
+    # binary apple and body sensors, distance to walls normalized same as in youtube video (min:1.0, max:x->0+)
+    def toNormalizedList2(self):
+        return [value for vision in self.visions for value in vision.toNormalizedList2()] + \
                self.head_direction.toBinaryList() + self.tail_direction.toBinaryList()

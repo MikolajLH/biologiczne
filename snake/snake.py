@@ -25,11 +25,11 @@ class Snake:
         self.__game_status_wrapper = game_status_wrapper
         self.__sensors: Sensors = sensors
         self.new_game()
+        self.__run()
 
     def new_game(self):
         self.__reset()
         self.__draw_screen()
-        self.__run()
 
     def make_move(self, direction) -> bool:
         if self.__game_status != GameStatus.GAME_ON:
@@ -112,11 +112,13 @@ class Snake:
     def __update_game_status(self):
         if len(self.__snake_body) == GRID_SIZE:
             self.__game_status = GameStatus.GAME_WON
+            self.__game_status_wrapper.current_status = self.__game_status
             return
 
         self.__no_food_moves_counter += 1
         if self.__no_food_moves_counter >= MAX_NO_FOOD_MOVES:
             self.__game_status = GameStatus.GAME_OVER_STARVED
+            self.__game_status_wrapper.current_status = self.__game_status
             return
 
         x, y = self.__snake_head.position.toList()

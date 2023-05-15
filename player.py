@@ -30,8 +30,7 @@ class Player:
             while self.__snake.getGameStatus() == GameStatus.GAME_ON:
 
                 sensors = self.__snake.getSensors()
-                inputValues = sensors.toNormalizedList()
-                # inputValues = sensors.toBinaryList()
+                inputValues = sensors.toNormalizedList2()
 
                 self.__brain.SetInputValues(inputValues)
                 # next_move = self.__brain.GetOutput()
