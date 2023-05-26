@@ -57,8 +57,14 @@ Sensory kierunku głowy/ogona są implementowane binarnie - odpowiadają na pyta
 Podczas przygotowywania każdej generacji algorytm genetyczny dzieli się na trzy fazy: selekcji, krzyżowania i mutacji.
 TODO: Opisać precyzyjnie
 \paragraph{Selekcja}
+Dokonujemy selekcji dwustopniowej - najpierw korzystamy z selekcji elity [BIBLIO], tj. wybieramy 5\% najlepszych węży, które przechodzą proces selekcji od razu do następnego pokolenia.
+Następnie przechodzimi do selekcji "koła ruletki" [biblio] - każdy wąż otrzymuje ilość losów proporcjonalnądo jego skuteczności, i losujemy które losy okażą się wygrywające.
+Wygrywające losy tworzą pary węży, które przejdą do procesu krzyżówki w ilości niezbędnej do odtworzenia wielkości populacji.
 \paragraph{Krzyżowanie}
+Proces selekcji dał nam listę par węży, gdzie każde dziecko weźmie połowę DNA od każdego rodzica.
 \paragraph{Mutacja}
+Z podanym parametrem prawdopodobieństwiem  wybieramy w każdym wężu konkretne wartości z DNA które zostaną poddane mutacji.
+Do tych wartości zostanie dodana wartość losowa z rozkładu normalnego.
 \section{Rezultaty nauki}
 Czego się nauczył?
 \paragraph{Parametry konfiguracyjne}
