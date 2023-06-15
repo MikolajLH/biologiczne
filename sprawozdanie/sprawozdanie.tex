@@ -18,12 +18,6 @@
 \begin{document}
 \maketitle
 \newpage
-\section{Internal Notes - remove when done}
-evolution.py -> do uczenia wunsza. Zapisuje to best\_snake.save()
-Parametry algorytmu genetycznego są evolution history,statistics (linia 79).
-Zapisuje na konsole, zapisuje i Wypluwa wykresy na ekran.
-
-snake/utils/snake_config.py -> do zmiany ustawień mapy. Asercja że jak pozmieniam to przeżyje.
 \section{Abstrakt}
 %Teoria "co robimy"
 W tym raporcie rozważamy zastosowania algorytmów genetycznych do szkolenia sztucznej inteligencji realizującej klasyczną grę "Snake".
@@ -57,8 +51,8 @@ Sensory kierunku głowy/ogona są implementowane binarnie - odpowiadają na pyta
 Podczas przygotowywania każdej generacji algorytm genetyczny dzieli się na trzy fazy: selekcji, krzyżowania i mutacji.
 TODO: Opisać precyzyjnie
 \paragraph{Selekcja}
-Dokonujemy selekcji dwustopniowej - najpierw korzystamy z selekcji elity [BIBLIO], tj. wybieramy 5\% najlepszych węży, które przechodzą proces selekcji od razu do następnego pokolenia.
-Następnie przechodzimi do selekcji "koła ruletki" [biblio] - każdy wąż otrzymuje ilość losów proporcjonalnądo jego skuteczności, i losujemy które losy okażą się wygrywające.
+Dokonujemy selekcji dwustopniowej - najpierw korzystamy z selekcji elity, tj. wybieramy 5\% najlepszych węży, które przechodzą proces selekcji od razu do następnego pokolenia.
+Następnie przechodzimi do selekcji "koła ruletki" - każdy wąż otrzymuje ilość losów proporcjonalnądo jego skuteczności, i losujemy które losy okażą się wygrywające.
 Wygrywające losy tworzą pary węży, które przejdą do procesu krzyżówki w ilości niezbędnej do odtworzenia wielkości populacji.
 \paragraph{Krzyżowanie}
 Proces selekcji dał nam listę par węży, gdzie każde dziecko weźmie połowę DNA od każdego rodzica.
@@ -66,25 +60,19 @@ Proces selekcji dał nam listę par węży, gdzie każde dziecko weźmie połow�
 Z podanym parametrem prawdopodobieństwiem  wybieramy w każdym wężu konkretne wartości z DNA które zostaną poddane mutacji.
 Do tych wartości zostanie dodana wartość losowa z rozkładu normalnego.
 \section{Rezultaty nauki}
-Czego się nauczył?
-\paragraph{Parametry konfiguracyjne}
-%Co możemy zmieniać (np. wielkość mapy, długość nauki, itp itd.)
-W ramach konfiguracji możemy zmieniać: \\
-Wielkość mapy, \\
-Wielkość populacji w każdej generacji, \\
-Ilość generacji (długość treningu), \\
-funkcję opisującą skuteczność SI, \\
-parametry selekcji/krzyżowania/mutacji.
-\subsection{Rezutaty z zestawu parametrów 1}
-\paragraph{Zestaw parametrów 1}
-\paragraph{Rezutaty nauki}
-Ładne grafy i komentarze tutaj.
-\subsection{Rezutaty z zestawu parametrów 2}
-\paragraph{Zestaw parametrów 2}
-\paragraph{Rezutaty nauki}
-Ładne grafy i komentarze tutaj.
+\begin{figure}[H]
+\includegraphics[width=0.8\textwidth]{bf}
+\caption{Analiza optymalnego węża w zależności od pokolenia, 2000 pokoleń}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[width=0.8\textwidth]{stat}
+\caption{Analiza statystyczna całego pokolenia}
+\end{figure}
+
 \section{Wnioski} 
-Jeżeli na jakieś wpadniemy.
-Może popatrzeć jak wunsz wyćwiczony na małej mapie radzi sobie na dużej?
+Po wyszkoleniu węża na małej mapie, na której rozgrywki są szybsze, przenieśliśmy ten sam algorytm na mapę większą (bez dalszego szkolenia). Co ciekawe, wyszkolone węże radziły sobie stosunkowo dobrze.
 \section{Bibliografia}
+1. https://4programmers.net/Z_pogranicza/Sztuczne_sieci_neuronowe_i_algorytmy_genetyczne \\
+2. https://myservername.com/introduction-genetic-algorithms-machine-learning \\
+3. "Genetic Algorithms for Evolving Deep Neural Networks" by David, Omid E. and Greental, Iddo, GECCO Comp '14: Proceedings of the Companion Publication of the 2014 Annual Conference on Genetic and Evolutionary Computation.
 \end{document}

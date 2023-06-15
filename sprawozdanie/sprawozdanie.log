@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.11)  26 MAY 2023 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.8)  16 JUN 2023 00:31
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/mikol/OneDrive/studia/semestr4/biologiczne/snake-evolution-final/sprawozdanie/sprawozdanie.tex
-(c:/Users/mikol/OneDrive/studia/semestr4/biologiczne/snake-evolution-final/sprawozdanie/sprawozdanie.tex
-LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-05-05> (c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
-(c:/texlive/2023/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+**sprawozdanie.tex
+(./sprawozdanie.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -19,20 +19,23 @@ File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
-) (c:/texlive/2023/texmf-dist/tex/latex/polski/polski.sty
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/polski/polski.sty
 Package: polski 2021/08/25 v1.3.6 Polish language package
 
    Switching to Polish text encoding and Polish maths fonts.
-(c:/texlive/2023/texmf-dist/tex/latex/base/ot4enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot4enc.def
 File: ot4enc.def 2021/04/29 v2.0v Standard LaTeX file
 Now handling font encoding OT4 ...
 ... no UTF-8 mapping file for font encoding OT4
 )
-LaTeX Font Info:    Trying to load font information for OT4+cmr on input line 362.
- (c:/texlive/2023/texmf-dist/tex/latex/polski/ot4cmr.fd
+LaTeX Font Info:    Trying to load font information for OT4+cmr on input line 3
+62.
+
+(/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
 File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
@@ -49,6 +52,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT4/cmr/bx/it on input line 362.
 LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
 (Font)              `operators' in the math version `normal' on input line 362.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT4/cmr/m/n on input line 362.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
@@ -65,29 +69,37 @@ LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
 (Font)                  OML/cmm/b/it --> OML/plm/b/it on input line 362.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> OMS/plsy/b/n on input line 362.
-) (c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks18
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (c:/texlive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen141
-\Gin@req@width=\dimen142
-) (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks19
 \symAMSa=\mathgroup4
@@ -95,51 +107,46 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-) (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-) (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip49
 
 For additional information on amsmath, use the `?' option.
-(c:/texlive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen143
-)) (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen141
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen144
-) (c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
+\pmbraise@=\dimen142
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
 )
 \inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 234.
 \uproot@=\count194
 \leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 399.
-LaTeX Info: Redefining \colon on input line 410.
 \classnum@=\count196
 \DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box51
-\strutbox@=\box52
-LaTeX Info: Redefining \big on input line 722.
-LaTeX Info: Redefining \Big on input line 723.
-LaTeX Info: Redefining \bigg on input line 724.
-LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen145
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count198
-LaTeX Info: Redefining \bmod on input line 905.
-LaTeX Info: Redefining \pmod on input line 910.
-LaTeX Info: Redefining \smash on input line 940.
-LaTeX Info: Redefining \relbar on input line 970.
-LaTeX Info: Redefining \Relbar on input line 971.
 \c@MaxMatrixCols=\count199
 \dotsspace@=\muskip16
 \c@parentequation=\count266
@@ -149,53 +156,61 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count269
 \maxfields@=\count270
 \andhelp@=\toks22
-\eqnshift@=\dimen146
-\alignsep@=\dimen147
-\tagshift@=\dimen148
-\tagwidth@=\dimen149
-\totwidth@=\dimen150
-\lineht@=\dimen151
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
 \@envbody=\toks23
-\multlinegap=\skip51
-\multlinetaggap=\skip52
+\multlinegap=\skip50
+\multlinetaggap=\skip51
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count271
-\lst@gtempboxa=\box53
+\lst@gtempboxa=\box52
 \lst@token=\toks25
 \lst@length=\count272
-\lst@currlwidth=\dimen152
+\lst@currlwidth=\dimen150
 \lst@column=\count273
 \lst@pos=\count274
-\lst@lostspace=\dimen153
-\lst@width=\dimen154
+\lst@lostspace=\dimen151
+\lst@width=\dimen152
 \lst@newlines=\count275
 \lst@lineno=\count276
-\lst@maxwidth=\dimen155
- (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\lst@maxwidth=\dimen153
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count277
 \lst@skipnumbers=\count278
-\lst@framebox=\box54
-) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
+\lst@framebox=\box53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
- (c:/texlive/2023/texmf-dist/tex/latex/breqn/breqn.sty (c:/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-05-05 L3 programming layer (loader) 
- (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/breqn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-01-21 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count279
-\l__pdf_internal_box=\box55
+\l__pdf_internal_box=\box54
 ))
 Package: breqn 2021/10/28 v0.98l Breaking equations
- (c:/texlive/2023/texmf-dist/tex/latex/breqn/flexisym.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/flexisym.sty
 Package: flexisym 2021/10/28 v0.98l Make math characters macros
 LaTeX Info: Redefining \textprime on input line 299.
 LaTeX Info: Redefining \not on input line 357.
- (c:/texlive/2023/texmf-dist/tex/latex/breqn/cmbase.sym
+
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/cmbase.sym
 File: cmbase.sym 2007/12/19 v0.92
 LaTeX Info: Redefining \hbar on input line 324.
 LaTeX Info: Redefining \surd on input line 326.
@@ -220,94 +235,97 @@ LaTeX Info: Redefining \Longleftrightarrow on input line 353.
 LaTeX Info: Redefining \cdots on input line 357.
 LaTeX Info: Redefining \vdots on input line 360.
 LaTeX Info: Redefining \ddots on input line 365.
-) (c:/texlive/2023/texmf-dist/tex/latex/breqn/mathstyle.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/breqn/mathstyle.sty
 Package: mathstyle 2021/10/28 v0.98l Tracking mathstyle implicitly
 LaTeX Info: Redefining \displaystyle on input line 95.
 LaTeX Info: Redefining \textstyle on input line 97.
 LaTeX Info: Redefining \scriptstyle on input line 99.
 LaTeX Info: Redefining \scriptscriptstyle on input line 101.
 LaTeX Info: Redefining \genfrac on input line 149.
-)) (c:/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count280
 \calc@Bcount=\count281
-\calc@Adimen=\dimen156
-\calc@Bdimen=\dimen157
-\calc@Askip=\skip53
-\calc@Bskip=\skip54
+\calc@Adimen=\dimen154
+\calc@Bdimen=\dimen155
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count282
-\calc@Cskip=\skip55
+\calc@Cskip=\skip54
 )
 \inf@bad=\count283
 \maxint=\count284
-\listwidth=\dimen158
-\eqnumsep=\dimen159
-\eqmargin=\dimen160
-\eqlinespacing=\skip56
-\eqlineskip=\skip57
-\eqlineskiplimit=\dimen161
+\listwidth=\dimen156
+\eqnumsep=\dimen157
+\eqmargin=\dimen158
+\eqlinespacing=\skip55
+\eqlineskip=\skip56
+\eqlineskiplimit=\dimen159
 \eqbinoffset=\muskip17
 \eqdelimoffset=\muskip18
-\eqindentstep=\dimen162
+\eqindentstep=\dimen160
 \eqstyle=\toks26
 \eqbreakdepth=\count285
 \eqinterlinepenalty=\count286
 \intereqpenalty=\count287
-\intereqskip=\skip58
+\intereqskip=\skip57
 \prerelpenalty=\count288
 \prebinoppenalty=\count289
 \Dmedmuskip=\muskip19
 \Dthickmuskip=\muskip20
-\eqleftskip=\skip59
-\eqrightskip=\skip60
-\eq@vspan=\skip61
+\eqleftskip=\skip58
+\eqrightskip=\skip59
+\eq@vspan=\skip60
 \eq@binoffset=\muskip21
-\EQ@box=\box56
-\EQ@copy=\box57
-\EQ@numbox=\box58
-\eq@wdNum=\dimen163
-\GRP@numbox=\box59
-\grp@wdNum=\dimen164
+\EQ@box=\box55
+\EQ@copy=\box56
+\EQ@numbox=\box57
+\eq@wdNum=\dimen161
+\GRP@numbox=\box58
+\grp@wdNum=\dimen162
 \eq@lines=\count290
 \eq@curline=\count291
 \eq@badness=\count292
 \EQ@vims=\count293
-\eq@dp=\dimen165
-\eq@wdL=\dimen166
-\eq@wdT=\dimen167
-\eq@wdMin=\dimen168
-\grp@wdL=\dimen169
-\grp@wdR=\dimen170
-\grp@wdT=\dimen171
-\eq@wdRmax=\dimen172
-\eq@firstht=\dimen173
-\eq@wdCond=\dimen174
-\eq@indentstep=\dimen175
-\eq@linewidth=\dimen176
-\grp@linewidth=\dimen177
-\eq@hshift=\dimen178
-\eq@given@sidespace=\dimen179
-\mathindent=\dimen180
+\eq@dp=\dimen163
+\eq@wdL=\dimen164
+\eq@wdT=\dimen165
+\eq@wdMin=\dimen166
+\grp@wdL=\dimen167
+\grp@wdR=\dimen168
+\grp@wdT=\dimen169
+\eq@wdRmax=\dimen170
+\eq@firstht=\dimen171
+\eq@wdCond=\dimen172
+\eq@indentstep=\dimen173
+\eq@linewidth=\dimen174
+\grp@linewidth=\dimen175
+\eq@hshift=\dimen176
+\eq@given@sidespace=\dimen177
+\mathindent=\dimen178
 \eq@final@linecount=\count294
-\eq@wdR=\dimen181
+\eq@wdR=\dimen179
 \EQ@continue=\toks27
 \lr@level=\count295
 \GRP@queue=\toks28
-\GRP@box=\box60
-\GRP@wholebox=\box61
-\darraycolsep=\skip62
+\GRP@box=\box59
+\GRP@wholebox=\box60
+\darraycolsep=\skip61
 \cur@row=\count296
 \cur@col=\count297
-\conditionsep=\skip63
-) (c:/texlive/2023/texmf-dist/tex/latex/float/float.sty
+\conditionsep=\skip62
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count298
 \float@exts=\toks29
-\float@box=\box62
+\float@box=\box61
 \@float@everytoks=\toks30
-\@floatcapt=\box63
+\@floatcapt=\box62
 ) (./sprawozdanie.aux)
 \openout1 = `sprawozdanie.aux'.
 
@@ -327,36 +345,46 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
- (c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count299
-\scratchdimen=\dimen182
-\scratchbox=\box64
+\scratchdimen=\dimen180
+\scratchbox=\box63
 \nofMPsegments=\count300
 \nofMParguments=\count301
 \everyMPshowfont=\toks31
 \MPscratchCnt=\count302
-\MPscratchDim=\dimen183
+\MPscratchDim=\dimen181
 \MPnumerator=\count303
 \makeMPintoPDFobject=\count304
 \everyMPtoPDFconversion=\toks32
-) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 \c@lstlisting=\count305
-LaTeX Font Info:    Trying to load font information for OML+plm on input line 19.
- (c:/texlive/2023/texmf-dist/tex/latex/polski/omlplm.fd
+LaTeX Font Info:    Trying to load font information for OML+plm on input line 1
+9.
+
+(/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 19.
- (c:/texlive/2023/texmf-dist/tex/latex/polski/omsplsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 
+19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Trying to load font information for OMX+plex on input line 19.
- (c:/texlive/2023/texmf-dist/tex/latex/polski/omxplex.fd
+LaTeX Font Info:    Trying to load font information for OMX+plex on input line 
+19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
@@ -366,35 +394,68 @@ LaTeX Font Info:    External font `plex10' loaded for size
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <6> on input line 19.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
- (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
- (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/pl/plrm.enc}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 44.
+(Font)              <10> on input line 38.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 44.
+(Font)              <7> on input line 38.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 44.
- [2] [3{c:/texlive/2023/texmf-dist/fonts/enc/dvips/pl/plms.enc}] [4] (./sprawozdanie.aux) ) 
+(Font)              <5> on input line 38.
+ [2]
+<bf.png, id=15, 644.4075pt x 486.81876pt>
+File: bf.png Graphic file (type png)
+<use bf.png>
+Package pdftex.def Info: bf.png  used on input line 64.
+(pdftex.def)             Requested size: 276.00105pt x 208.51088pt.
+<stat.png, id=17, 647.41875pt x 485.815pt>
+File: stat.png Graphic file (type png)
+<use stat.png>
+Package pdftex.def Info: stat.png  used on input line 68.
+(pdftex.def)             Requested size: 276.00105pt x 207.10986pt.
+ [3] [4 <./bf.png> <./stat.png>]
+Overfull \hbox (56.1675pt too wide) in paragraph at lines 75--78
+\OT4/cmr/m/n/10 1. https://4programmers.net/Z_pogranicza/Sztuczne_sieci_neurono
+we_i_algorytmy_genetyczne 
+ []
+
+
+Overfull \hbox (3.08406pt too wide) in paragraph at lines 75--78
+\OT4/cmr/m/n/10 2. https://myservername.com/introduction-genetic-algorithms-mac
+hine-learning 
+ []
+
+[5] (./sprawozdanie.aux) ) 
 Here is how much of TeX's memory you used:
- 5137 strings out of 476047
- 75217 string characters out of 5794245
- 1859242 words of memory out of 5000000
- 25500 multiletter control sequences out of 15000+600000
- 524410 words of font info for 68 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 65i,6n,85p,662b,261s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/pl/plsy10.pfb>
-Output written on sprawozdanie.pdf (4 pages, 64620 bytes).
+ 5107 strings out of 480212
+ 74516 string characters out of 5895276
+ 361769 words of memory out of 5000000
+ 22987 multiletter control sequences out of 15000+600000
+ 481382 words of font info for 64 fonts, out of 8000000 for 9000
+ 34 hyphenation exceptions out of 8191
+ 62i,6n,85p,575b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plm
+s.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/te
+xlive/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/pl/plr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb>
+Output written on sprawozdanie.pdf (5 pages, 136970 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
