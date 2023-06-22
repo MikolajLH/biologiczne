@@ -123,7 +123,7 @@ class RawSnake:
             v = self.__snake_head.position
             self.__sensors.visions[i].is_apple = False
             self.__sensors.visions[i].is_snake_body = False
-            while v.x > 0 and v.x < GRID_WIDTH and v.y > 0 and v.y < GRID_HEIGHT:
+            while v.x >= 0 and v.x < GRID_WIDTH and v.y >= 0 and v.y < GRID_HEIGHT:
                 v += unit_vector
                 if v == self.__food_position:
                     self.__sensors.visions[i].is_apple = True

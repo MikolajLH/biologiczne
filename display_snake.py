@@ -11,7 +11,6 @@ from NN.activation_functions import *
 
 class Player:
     def __init__(self, brain : NeuralNetwork, move_time: float = 0.20) -> None:
-
         self.__brain = brain
         self.__snake = SnakeHandler(True)
         self.__move_time = move_time
@@ -21,13 +20,14 @@ class Player:
 
     
     def play(self):
+        sensors = ""
+        sensors_list = []
         time.sleep(1)   # time to load screen
         while True:
             while gs := self.__snake.getGameStatus() == GameStatus.GAME_ON:
                 sensors = self.__snake.getSensors()
 
-                # inputVector = np.array(sensors.toNormalizedList())
-                inputVector = np.array(sensors.toNormalizedList2())
+                inputVector = np.array(sensors.toNormalizedList())
 
                 outputVector = self.__brain(inputVector)
 
@@ -35,8 +35,8 @@ class Player:
                 self.__snake.make_move(next_move)
 
                 time.sleep(self.__move_time)
-            time.sleep(1)   # time between death and new game
             self.__snake.new_game()
+            time.sleep(1)   # time between death and new game
 
 
 if __name__ == "__main__":
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     model.add_hidden_layer(12, relu)
     model.add_output_layer(4, softmax)
 
-    path = "sensors2.npz"   # testing snake with distance normalized as in yt video
+    path = "węże/poziomek.npz"  # testing snake with distance normalized as in yt video
     brain = model.copy()
     brain.load(path)
 

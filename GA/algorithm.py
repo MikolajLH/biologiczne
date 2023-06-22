@@ -59,7 +59,6 @@ def ga(
     
             #sort population acording to fitness
             population.sort(key = lambda ind: ind[1], reverse= True)
-        
 
             #split individuals and their fitness
             individuals, fitnesses = zip(*population)
@@ -107,6 +106,8 @@ def ga(
             #merge elite and offsprings to create next generation
             population = [ individual for individual in itertools.chain(elite, offsprings) ]
     except KeyboardInterrupt:
+        return history, stats_history
+    except TypeError:
         return history, stats_history
 
     return history, stats_history

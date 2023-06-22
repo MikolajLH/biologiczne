@@ -82,25 +82,25 @@ if __name__ == "__main__":
         (GA.selection.roulette_wheel_selection,),
         (NN.crossover.unifrom_weights_crossover,),
         [(NN.mutation.gaussian_mutation,0.05)],
-        0.05, 50)
+        0.05, 5000)
     
     best_f, worst_f, avg_f, std_f, Q1_f, median_f, Q3_f = zip(*statistics)
 
     best_snake = evolution_history[-1]
-    best_snake.save("sensor_test")
+    best_snake.save("snake.npz")
 
-    # plt.plot(best_f, label="best fitness")
-    # plt.semilogy()
-    # plt.legend()
-    # plt.show()
-    #
-    # plt.plot(worst_f, label= "worst fitness")
-    # plt.plot(avg_f, label= "avg fitness")
-    # plt.plot(Q1_f, label= "Q1")
-    # plt.plot(Q3_f, label= "Q3")
-    # plt.plot(median_f, label= "median")
-    # plt.plot(std_f, label= "stddev")
-    # plt.legend()
-    # plt.show()
+    plt.plot(best_f, label="best fitness")
+    plt.semilogy()
+    plt.legend()
+    plt.show()
+
+    plt.plot(worst_f, label= "worst fitness")
+    plt.plot(avg_f, label= "avg fitness")
+    plt.plot(Q1_f, label= "Q1")
+    plt.plot(Q3_f, label= "Q3")
+    plt.plot(median_f, label= "median")
+    plt.plot(std_f, label= "stddev")
+    plt.legend()
+    plt.show()
 
 
