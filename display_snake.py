@@ -20,8 +20,6 @@ class Player:
 
     
     def play(self):
-        sensors = ""
-        sensors_list = []
         time.sleep(1)   # time to load screen
         while True:
             while gs := self.__snake.getGameStatus() == GameStatus.GAME_ON:
@@ -36,7 +34,7 @@ class Player:
 
                 time.sleep(self.__move_time)
             self.__snake.new_game()
-            time.sleep(1)   # time between death and new game
+            time.sleep(1)   # reset time
 
 
 if __name__ == "__main__":
@@ -48,7 +46,7 @@ if __name__ == "__main__":
     model.add_hidden_layer(12, relu)
     model.add_output_layer(4, softmax)
 
-    path = "węże/poziomek.npz"  # testing snake with distance normalized as in yt video
+    path = "węże/poziomek.npz"
     brain = model.copy()
     brain.load(path)
 
